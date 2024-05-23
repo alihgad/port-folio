@@ -5,6 +5,7 @@ import axios from "axios";
 import Styles from "./projects.module.css";
 import Link from "next/link";
 import Loader from "@/components/global/Loader";
+import hamada from './../../../../public/imges/Kasper.png'
 
 export default function Page() {
   const [projects, setProjects]: [
@@ -79,6 +80,7 @@ export default function Page() {
                                 alt={proj.alt}
                                 width={"398"}
                                 height={"240"}
+                                loading="lazy"
                               />
                             </div>
                           </div>
@@ -135,6 +137,7 @@ export default function Page() {
                                 alt={proj.alt}
                                 width={"398"}
                                 height={"240"}
+                                loading="lazy"
                               />
                             </div>
                           </div>
@@ -191,6 +194,7 @@ export default function Page() {
                                 alt={proj.alt}
                                 width={"398"}
                                 height={"240"}
+                                loading="lazy"
                               />
                             </div>
                           </div>
