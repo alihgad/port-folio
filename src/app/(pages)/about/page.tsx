@@ -1,14 +1,16 @@
-import React from 'react'
+import Certifcation from "@/components/(AboutPage)/(certifcations)/Certifcation";
+import Skills from "@/components/(AboutPage)/Skills/Skills";
+import About from "@/components/home-page/about/About";
+import React from "react";
 
 export default function page() {
   return (
-    <div className='flex justify-center items-center'>
-        <div>
-            <p>Hello, I&apos;m</p>
-            <h1 id='h1'></h1>
-        </div>
-        <div></div>
-    </div>
-  )
+    <>
+      <div className="min-h-screen">
+        <About hidden={"hidden"} />
+      </div>
+      <Skills />
+      <Certifcation />
+    </>
+  );
 }
-

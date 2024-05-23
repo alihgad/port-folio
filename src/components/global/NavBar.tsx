@@ -1,13 +1,12 @@
 "use client";
-import { Children, Fragment, useContext, useState } from "react";
 import {
   DisclosureButton,
   DisclosurePanel,
   Disclosure,
 } from "@headlessui/react";
-import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
-import ali from "./../../public/imges/icon.png";
+import ali from "./../../../public/imges/icon.png";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import ThemeSwitch from "@/app/themeswitch";
@@ -56,10 +55,10 @@ export default function NavBar() {
                     <Image
                       className="h-10 w-auto "
                       src={ali}
-                      alt="Your Company"
+                      alt="ali"
                     />
                   </div>
-                  <p className="text-gray-900 ml-5 font-bold text-xl dark:text-white">
+                  <p className="text-gray-900 ml-5 mb-0 font-bold text-xl dark:text-white">
                     ALi Hassan
                   </p>
                 </div>
@@ -73,7 +72,7 @@ export default function NavBar() {
                           pathName == item.href
                             ? "bg-blue-400 text-white dark:bg-blue-900"
                             : "text-gray-900 hover:bg-blue-200 hover:text-gray-600 dark:hover:text-white dark:hover:bg-blue-500 dark:text-white",
-                          "rounded-md px-3 py-2 text-sm font-medium"
+                          "rounded-md px-3 py-2 text-sm font-medium no-underline"
                         )}
                         aria-current={
                           pathName == item.href ? "page" : undefined
@@ -85,7 +84,7 @@ export default function NavBar() {
                   </div>
                 </div>
               </div>
-              <div className="absolute right-5 sm:-right-4  lg:-right-7">
+              <div className="absolute right-0 sm:-right-2 md:right-1/2 md:translate-x-1/2 ">
                 <ThemeSwitch />
               </div>
             </div>

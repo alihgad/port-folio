@@ -1,6 +1,6 @@
-import About from '@/components/home-page/About'
+import About from '@/components/home-page/about/About'
 import Hero from '@/components/home-page/Hero'
-import Skills from '@/components/home-page/Skills/Skills'
+import Skills from '@/components/(AboutPage)/Skills/Skills'
 import React from 'react'
 
 export default function Home() {
@@ -8,7 +8,6 @@ export default function Home() {
     <>
     <Hero/>
     <About/>
-    <Skills/>
     </>
   )
 }
