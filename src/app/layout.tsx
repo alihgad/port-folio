@@ -12,6 +12,8 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "ALi Portfolio",
   description: "Front-End Developer",
+  keywords: ["Front-End Developer" , "Ali Portfolio" , "react developer"],
+  
 };
 
 export default function RootLayout({
