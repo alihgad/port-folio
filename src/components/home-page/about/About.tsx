@@ -19,7 +19,7 @@ export default function About({hidden}:{
                 alt={"pc"}
               />
             </div>
-            <div className="text flex flex-col justify-center text-center sm:text-left">
+            <div className="text flex flex-col justify-center  md:text-left">
               <h3 className="text-3xl font-extrabold ">About Me</h3>
               <p className=" text-lg font-light">
                 I am a full stack web developer with a passion for creating
