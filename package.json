@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@cor eui/coreui": "^5.0.1",
+    "@coreui/coreui": "^5.0.1",
     "@coreui/icons": "^3.0.1",
     "@coreui/icons-react": "^2.2.1",
     "@coreui/react": "^5.0.0",
