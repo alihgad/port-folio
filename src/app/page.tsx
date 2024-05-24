@@ -8,6 +8,7 @@ export default function Home() {
     <>
     <Hero/>
     <About/>
+    <img src="https://i.ibb.co/R4nzWsW/Kasper.png" alt="Kasper"  />
     </>
   )
 }
