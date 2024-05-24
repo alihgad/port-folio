@@ -32,14 +32,14 @@ function DetailsAbout() {
         </div>
       </Tab>
       <Tab eventKey="education" title="Education">
-      <ul className="list-disc">
+      <ul className="list-disc pl-5">
           <li>Back-end diploma at route Academy </li>
           <li>Front-end diploma at route Academy </li>
           <li>faculty of agriculture at Al-Azhar university</li>
         </ul>
       </Tab>
       <Tab eventKey="Certifications" title="Certifications">
-      <ul className="list-disc">
+      <ul className="list-disc pl-5">
           <li>HTML & CSS from Mahara Tech (ITI) </li>
           <li>Introduction To Front-End Development (meta) </li>
           <li>Web Development Chalenger Track (itida + udacity)</li>
