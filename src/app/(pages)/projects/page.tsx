@@ -7,6 +7,19 @@ import Link from "next/link";
 import Loading from "@/components/global/Loader";
 
 export default function Page() {
+  let kasper = [
+    {
+      id: 23,
+      link: "https://alihgad.github.io/kasper/",
+      image: "https://i.ibb.co/R4nzWsW/Kasper.png",
+      alt: "kasper",
+      heading: "kasper template",
+      description: "html + css , responsive",
+      date: "oct-2022",
+      type: "native",
+      git: "https://github.com/alihgad/kasper",
+    },
+  ];
   const [projects, setProjects]: [
     (
       | {
@@ -162,7 +175,7 @@ export default function Page() {
             <div className="native">
               <h3 className="border-b pb-2 border-blue-300">Native </h3>
               <div className="my-3 grid gap-5 md:grid-cols-3 ">
-                {projects?.map((proj: any, i: number) => {
+                {kasper.map((proj: any, i: number) => {
                   return (
                     <>
                       {proj.type == "native" ? (
@@ -191,7 +204,7 @@ export default function Page() {
                                   </p>
                                 </div>
                                 <Image
-                                  src={`${proj.image}`}
+                                  src={proj.image}
                                   className={`${Styles.image}  transition-all duration-500`}
                                   alt={proj.alt}
                                   width={"398"}
