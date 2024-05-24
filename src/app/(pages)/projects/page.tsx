@@ -51,8 +51,8 @@ export default function Page() {
                   return (
                     <>
                       {proj.type == "next" ? (
-                        <div key={i} className={`${Styles.card} dark:bg-slate-700 dark:text-white`}>
-                          <div className="card text-capitalize shadow-3d ">
+                        <div key={i} className={`${Styles.card}`}>
+                          <div className="card text-capitalize shadow-3d dark:bg-slate-700 dark:text-white ">
                             <div className="overflow-hidden rounded-top-2 ">
                               <div className="relative  ">
                                 <div
