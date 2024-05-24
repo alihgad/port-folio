@@ -103,7 +103,7 @@ export default function Page() {
 
             <div className="react">
               <h3 className="border-b pb-2 border-blue-300">React JS</h3>
-              <div className="my-3 grid gap-5 md:grid-cols-3 ">
+              <div className="my-3 grid gap-5 md:grid-cols-2 lg:grid-cols-3  ">
                 {projects?.map((proj: any, i: number) => {
                   return (
                     <>
@@ -160,7 +160,7 @@ export default function Page() {
 
             <div className="native">
               <h3 className="border-b pb-2 border-blue-300">Native </h3>
-              <div className="my-3 grid gap-5 md:grid-cols-3 ">
+              <div className="my-3 grid gap-5 md:grid-cols-2 lg:grid-cols-3 ">
                 {projects.map((proj: any, i: number) => {
                   return (
                     <>

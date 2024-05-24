@@ -41,16 +41,17 @@ export default function Certifcation() {
         <h1 className="flex justify-center dark:text-white my-5">
           Certifcation
         </h1>
-        <div className="flex flex-wrap gap-10 justify-center">
-          {Certifecations.map((c, i) => {
+        <div className="flex flex-wrap gap-10  justify-center">
+          {Certifecations.map((c) => {
             return (
+              <>
               <Card
-                key={i}
                 alt={c.title}
                 title={c.title}
                 image={c.image}
                 link={c.link}
               />
+              </>
             );
           })}
         </div>
