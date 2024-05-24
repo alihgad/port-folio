@@ -46,12 +46,12 @@ export default function Page() {
           <div className=" pt-20">
             <div className="next ">
               <h3 className="border-b pb-2 border-blue-300">Next JS</h3>
-              <div className="my-3 grid gap-5 md:grid-cols-2 lg:grid-cols-3 dark:bg-slate-700 dark:text-white ">
+              <div className="my-3 grid gap-5 md:grid-cols-2 lg:grid-cols-3  ">
                 {projects?.map((proj: any, i: number) => {
                   return (
                     <>
                       {proj.type == "next" ? (
-                        <div key={i} className={`${Styles.card} `}>
+                        <div key={i} className={`${Styles.card} dark:bg-slate-700 dark:text-white`}>
                           <div className="card text-capitalize shadow-3d ">
                             <div className="overflow-hidden rounded-top-2 ">
                               <div className="relative  ">
