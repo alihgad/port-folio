@@ -286,7 +286,6 @@ const Page: React.FC<{}> = () => {
                       <tr>
                         <th scope="col">id</th>
                         <th scope="col">title</th>
-                        <th scope="col">actions</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -296,22 +295,7 @@ const Page: React.FC<{}> = () => {
                             <tr className="">
                               <td scope="row">{proj.id}</td>
                               <td>{proj.alt}</td>
-                              <td>
-                                <Button
-                                  onClick={() => {
-                                    deleteProject(proj.id);
-                                  }}
-                                >
-                                  delete
-                                </Button>
-                                <Button
-                                  onClick={() => {
-                                    updateProject(proj.id)
-                                  }}
-                                  >
-                                    update
-                                  </Button>
-                              </td>
+                              
                             </tr>
                           </>
                         );
@@ -352,3 +336,4 @@ const Page: React.FC<{}> = () => {
 };
 
 export default Page;
+ 

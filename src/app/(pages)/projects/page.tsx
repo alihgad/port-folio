@@ -90,7 +90,7 @@ export default function Page() {
                                   </p>
                                 </div>
                                 <Image
-                                  src={`/${proj.image}`}
+                                  src={proj.image}
                                   className={`${Styles.image}  transition-all duration-500`}
                                   alt={proj.alt}
                                   width={"398"}
@@ -147,7 +147,7 @@ export default function Page() {
                                   </p>
                                 </div>
                                 <Image
-                                  src={`/${proj.image}`}
+                                  src={proj.image}
                                   className={`${Styles.image}  transition-all duration-500`}
                                   alt={proj.alt}
                                   width={"398"}
