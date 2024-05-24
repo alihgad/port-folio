@@ -42,11 +42,11 @@ export default function Page() {
       {isLoading ? (
         <Loading />
       ) : (
-        <div className="container">
+        <div className="container dark:text-white">
           <div className=" pt-20">
             <div className="next ">
               <h3 className="border-b pb-2 border-blue-300">Next JS</h3>
-              <div className="my-3 grid gap-5 md:grid-cols-2 lg:grid-cols-3 ">
+              <div className="my-3 grid gap-5 md:grid-cols-2 lg:grid-cols-3 dark:bg-slate-700 dark:text-white ">
                 {projects?.map((proj: any, i: number) => {
                   return (
                     <>
@@ -90,7 +90,7 @@ export default function Page() {
                               <p className="mb-1">{proj.description}</p>
                             </div>
                             <div className="card-footer">
-                              <small className="text-muted">{proj.date}</small>
+                              <small className="text-muted-foreground">{proj.date}</small>
                             </div>
                           </div>
                         </div>
@@ -109,7 +109,7 @@ export default function Page() {
                     <>
                       {proj.type == "react" ? (
                         <div key={i} className={`${Styles.card} `}>
-                          <div className="card text-capitalize shadow-3d ">
+                          <div className="card text-capitalize shadow-3d dark:bg-slate-700 dark:text-white">
                             <div className="overflow-hidden rounded-top-2 ">
                               <div className="relative  ">
                                 <div
@@ -147,7 +147,7 @@ export default function Page() {
                               <p className="mb-1">{proj.description}</p>
                             </div>
                             <div className="card-footer">
-                              <small className="text-muted">{proj.date}</small>
+                              <small className="text-muted-foreground dark:text-white">{proj.date}</small>
                             </div>
                           </div>
                         </div>
@@ -166,7 +166,7 @@ export default function Page() {
                     <>
                       {proj.type == "native" ? (
                         <div key={i} className={`${Styles.card} `}>
-                          <div className="card text-capitalize shadow-3d ">
+                          <div className="card text-capitalize shadow-3d dark:bg-slate-700 dark:text-white  ">
                             <div className="overflow-hidden rounded-top-2 ">
                               <div className="relative  ">
                                 <div
@@ -204,7 +204,7 @@ export default function Page() {
                               <p className="mb-1">{proj.description}</p>
                             </div>
                             <div className="card-footer">
-                              <small className="text-muted">{proj.date}</small>
+                              <small className="text-muted-foreground">{proj.date}</small>
                             </div>
                           </div>
                         </div>
