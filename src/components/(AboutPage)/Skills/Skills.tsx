@@ -1,7 +1,6 @@
 "use client";
 import * as ci from "@coreui/icons";
 import SkillCard from "./SkillCard";
-import Certifcation from "../(certifcations)/Certifcation";
 
 export default function Skills() {
   return (
