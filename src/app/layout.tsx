@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/global/NavBar";
-import "@fortawesome/fontawesome-free/css/all.min.css";
 import { Porviders } from "./porviders";
 import Footer from "@/components/global/Footer";
 import '@coreui/coreui/dist/css/coreui.min.css'
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,6 +22,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <>
+    <SpeedInsights/>
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className}  bg-gray-200  dark:bg-[#121212]`}>
         <Porviders>
@@ -31,5 +33,7 @@ export default function RootLayout({
         </Porviders>
       </body>
     </html>
+    </>
+
   );
 }
