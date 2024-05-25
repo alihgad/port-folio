@@ -4,7 +4,7 @@ import "./globals.css";
 import NavBar from "@/components/global/NavBar";
 import { Porviders } from "./porviders";
 import Footer from "@/components/global/Footer";
-import "@coreui/coreui/dist/css/coreui.min.css";
+import '@coreui/coreui/dist/css/coreui.min.css'
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,16 +20,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <>
-      <html lang="en" suppressHydrationWarning>
-        <body className={`${inter.className}  bg-gray-200  dark:bg-[#121212]`}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${inter.className}  bg-gray-200  dark:bg-[#121212]`}>
+        <Porviders>
           <NavBar />
-          <Porviders>
-            <main>{children}</main>
-          </Porviders>
-          <Footer />
-        </body>
-      </html>
-    </>
+          <main>{children}</main>
+          <Footer/>
+        </Porviders>
+      </body>
+    </html>
   );
 }
