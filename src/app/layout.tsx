@@ -4,8 +4,8 @@ import "./globals.css";
 import NavBar from "@/components/global/NavBar";
 import { Porviders } from "./porviders";
 import Footer from "@/components/global/Footer";
-import '@coreui/coreui/dist/css/coreui.min.css'
-
+import "@coreui/coreui/dist/css/coreui.min.css";
+// import ''
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -21,11 +21,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className}  bg-gray-200  dark:bg-[#121212]`}>
+      <body className={`${inter.className}   bg-gray-200  dark:bg-[#121212]`}>
         <Porviders>
           <NavBar />
           <main>{children}</main>
-          <Footer/>
+          <Footer />
         </Porviders>
       </body>
     </html>
