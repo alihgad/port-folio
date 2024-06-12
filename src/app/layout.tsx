@@ -5,7 +5,9 @@ import NavBar from "@/components/global/NavBar";
 import { Porviders } from "./porviders";
 import Footer from "@/components/global/Footer";
 import "@coreui/coreui/dist/css/coreui.min.css";
-// import ''
+import "@fortawesome/fontawesome-free/css/all.min.css"
+
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {

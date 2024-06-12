@@ -75,7 +75,7 @@ export default function Hero() {
               id="ali"
               className="border-2 border-blue-400  w-full overflow-hidden shadow-2xl shadow-blue-400  "
             >
-              <Image src={ali} alt="ali" />
+              <Image src={ali} alt="ali" priority />
             </div>
           </div>
         </div>

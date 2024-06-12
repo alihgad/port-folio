@@ -9,19 +9,19 @@ import Link from "next/link";
 
 const Page = () => {
   const form: any = useRef();
+  
 
   const sendEmail = (e: any) => {
-    console.log("email.js");
 
     e.preventDefault();
 
     emailjs
-      .sendForm("service_ali", "template_alihgad", form.current, {
+      .sendForm("service_ali", "template_ali", form.current, {
         publicKey: "VdP3etScr6dqyrzOP",
       })
       .then(
         () => {
-          alert("SUCCESS!");
+          alert("meesage sent");
         },
         (error) => {
           alert("FAILED..." + error.text);
