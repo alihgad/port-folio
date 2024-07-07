@@ -44,7 +44,7 @@ const Page: React.FC<{}> = () => {
      getData()
   }, []);
 
-  const [admin, setAdmin] = useState(true);
+  const [admin, setAdmin] = useState(false);
   const formik = useFormik({
     initialValues: {
       link: "",
@@ -82,6 +82,8 @@ const Page: React.FC<{}> = () => {
         .then((res) => {
           if (res.data.role === "admin") {
             setAdmin(true);
+          }else{
+            alert("wrong pin")
           }
         })
         .catch((err) => {
