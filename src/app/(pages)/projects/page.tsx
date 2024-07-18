@@ -31,7 +31,6 @@ export default function Page() {
       .get("https://portfolio-api-sigma-ten.vercel.app/projects")
       .then((response) => {
         setProjects(response?.data?.projects);
-        console.log(response.data.projects);
         
         setIsLoading(false);
       })
@@ -206,7 +205,7 @@ export default function Page() {
                               <p className="mb-1">{proj.description}</p>
                             </div>
                             <div className="card-footer">
-                              <small className="text-muted-foreground">{proj.date}</small>
+                              <small className="text-muted-foreground">{proj.date.split("T")[0]}</small>
                             </div>
                           </div>
                         </div>

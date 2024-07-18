@@ -43,7 +43,7 @@ const Page: React.FC<{}> = () => {
     await axios
       .get("https://portfolio-api-sigma-ten.vercel.app/projects")
       .then((response) => {
-        setProjects(response.data);
+        setProjects(response.data.projects);
       })
       .catch((error) => {
         console.error("Error fetching products:", error);
@@ -74,6 +74,7 @@ const Page: React.FC<{}> = () => {
       axios
         .post("https://portfolio-api-sigma-ten.vercel.app/projects", values)
         .then((res) => {
+          console.log(res);
           alert("success" + res);
           getData();
         values.image = "",
