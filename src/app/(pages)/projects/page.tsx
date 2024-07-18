@@ -30,7 +30,9 @@ export default function Page() {
     axios
       .get("https://portfolio-api-sigma-ten.vercel.app/projects")
       .then((response) => {
-        setProjects(response?.data);
+        setProjects(response?.data?.projects);
+        console.log(response.data.projects);
+        
         setIsLoading(false);
       })
       .catch((error) => {
@@ -216,6 +218,7 @@ export default function Page() {
             </div>
           </div>
         </div>
+        
       )}
     </>
   );

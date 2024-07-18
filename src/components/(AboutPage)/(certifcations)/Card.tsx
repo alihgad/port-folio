@@ -20,7 +20,7 @@ export default function Card({
         <div className="card-body">
           <h5 className="card-title">{title}</h5>
           <p className="card-text"></p>
-          <Link target="_blank" href={link} className="btn btn-primary">
+          <Link target="_blank" href={link} className="btn btn-primary dark:bg-gray-500 dark:border-gray-500 dark:hover:bg-gray-600 dark:hover:border-gray-600">
             More Details
           </Link>
         </div>

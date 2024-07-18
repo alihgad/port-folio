@@ -6,37 +6,50 @@ import { Button } from "@/components/ui/button";
 import axios from "axios";
 import Loading from "@/components/global/Loader";
 
+interface project  {
+    id: number;
+    image: string;
+    alt: string;
+    link: string;
+    heading: string;
+    description: string;
+    date: string;
+    type: string;
+    git: string;
+}
+
 const Page: React.FC<{}> = () => {
   const [projects, setProjects]: [
-    (
-      | {
-          image: any;
-          alt: string;
-          link: string;
-          heading: string;
-          description: string;
-          date: string;
-        }[]
-      | any
-    ),
+    project[],
     Dispatch<SetStateAction<null>> | any
   ] = useState([]);
   const [isLoading, setIsLoading]: [
     boolean,
     Dispatch<SetStateAction<boolean>>
   ] = useState(true);
+  const [update, setUpdate]: [
+    boolean,
+    Dispatch<SetStateAction<boolean>>
+  ] = useState(false);
+  const [id, setId]: [
+    number | undefined,
+    Dispatch<SetStateAction<number | undefined>>
+  ] = useState();
+  const [admin, setAdmin] = useState(true);
+
+
 
   async function getData(){
     await axios
       .get("https://portfolio-api-sigma-ten.vercel.app/projects")
       .then((response) => {
-        console.log(response.data);
         setProjects(response.data);
       })
       .catch((error) => {
         console.error("Error fetching products:", error);
       }).finally(() => {
         setIsLoading(false);
+        
       });
   }
 
@@ -44,7 +57,7 @@ const Page: React.FC<{}> = () => {
      getData()
   }, []);
 
-  const [admin, setAdmin] = useState(false);
+
   const formik = useFormik({
     initialValues: {
       link: "",
@@ -63,6 +76,14 @@ const Page: React.FC<{}> = () => {
         .then((res) => {
           alert("success" + res);
           getData();
+        values.image = "",
+        values.alt = "",
+        values.link = "",
+        values.heading = "",
+        values.description = "",
+        values.date = "",
+        values.type = "",
+        values.git = ""
           
         })
         .catch((err) => {
@@ -100,26 +121,66 @@ const Page: React.FC<{}> = () => {
   }
 
   const editproject = (id:number)=>{
-    
+    setUpdate(true)
+    setId(id)
 
-  }
-
-  const updateProject = (id:number)=>{
-    const project = projects.find((p:{id:number}) => {
+    const project:project|undefined = projects.find((p:{id:number}):boolean => {
       return p.id === id
     })
 
-    formik.setValues({
-      link: project.link,
-      image: project.image,
-      alt: project.alt,
-      heading: project.heading,
-      description: project.description,
-      date: project.date,
-      type: project.type,
-      git: project.git,
-    })
-    deleteProject(id)
+    
+    if (project){
+      formik.setValues({
+        link: project.link,
+        image: project.image,
+        alt: project.alt,
+        heading: project.heading,
+        description: project.description,
+        date: project.date,
+        type: project.type,
+        git: project.git,
+      })
+  
+    }else{
+      alert("project not found")
+    }
+
+
+  }
+
+  const updateProject = async (id:number | undefined , values:any)=>{
+    values.id = id
+    setIsLoading(true)
+    await axios
+      .put(`https://portfolio-api-sigma-ten.vercel.app/projects/${id}` , {
+        image: values.image,
+        alt: values.alt,
+        link: values.link,
+        heading: values.heading,
+        description: values.description,
+        date: values.date,
+        type: values.type,
+        git: values.git,
+      })
+      .then((response) => {
+        alert("success");
+        getData();
+        setUpdate(false)
+        values.image = "",
+        values.alt = "",
+        values.link = "",
+        values.heading = "",
+        values.description = "",
+        values.date = "",
+        values.type = "",
+        values.git = ""
+      })
+      .catch((error) => {
+        console.error("Error fetching products:", error);
+      }).finally(() => {
+        setIsLoading(false);
+      });
+
   }
 
   return (
@@ -277,7 +338,8 @@ const Page: React.FC<{}> = () => {
                     ) : null}
                   </div>
 
-                  <Button type="submit">add</Button>
+                  <Button type="submit" className={update ?  "hidden" : ""}>add</Button>
+                  <div onClick={()=>{updateProject(id , formik.values)}} className={update ?  "bg-blue-400 rounded-lg px-3 py-2 capitalize text-white cursor-pointer" : "hidden"}  >update</div>
                 </form>
               </div>
 
@@ -286,8 +348,10 @@ const Page: React.FC<{}> = () => {
                   <table className="table table-secondary">
                     <thead>
                       <tr>
-                        <th scope="col">id</th>
-                        <th scope="col">title</th>
+                        <th scope="col" className="text-center">id</th>
+                        <th scope="col" className="text-center">title</th>
+                        <th scope="col" className="text-center" >update</th>
+                        <th scope="col" className="text-center" >delete</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -295,9 +359,14 @@ const Page: React.FC<{}> = () => {
                         return (
                           <>
                             <tr className="">
-                              <td scope="row">{proj.id}</td>
+                              <td scope="row" >{proj.id}</td>
                               <td>{proj.alt}</td>
-                              
+                              <td>
+                                <Button onClick={()=>{editproject(proj.id)}}>update</Button>
+                              </td>
+                              <td>
+                                <Button onClick={()=>{deleteProject(proj.id)}}>delete</Button>
+                              </td>
                             </tr>
                           </>
                         );

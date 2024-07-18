@@ -19,14 +19,16 @@ function DetailsAbout() {
             <li>tailwind css</li>
             <li>JQuery</li>
             <li>React Js</li>
+            <li>Next Js</li>
           </ul>
           <ul className="list-disc pl-5">
-            <li>Next Js</li>
             <li>TypeScript</li>
             <li>Node Js</li>
             <li>Express JS </li>
             <li>MySql</li>
             <li>Squlieze</li>
+            <li>MongoDb</li>
+            <li>Mongoose</li>
             
           </ul>
         </div>
@@ -39,11 +41,12 @@ function DetailsAbout() {
         </ul>
       </Tab>
       <Tab eventKey="Certifications" title="Certifications">
-      <ul className="list-disc pl-5">
+        <ul className="list-disc pl-5">
           <li>HTML & CSS from Mahara Tech (ITI) </li>
           <li>Introduction To Front-End Development (meta) </li>
           <li>Web Development Chalenger Track (itida + udacity)</li>
           <li>Professional Front-End Web Development (itida + udacity)</li>
+          <li>Front-End Web Development React Js (Route)</li>
         </ul>
       </Tab>
     </Tabs>

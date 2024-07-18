@@ -49,7 +49,7 @@ const Page = () => {
             onSubmit={sendEmail}
             className="flex justify-center items-center flex-col w-full"
           >
-            <h1 className="text-blue-400 font-sans">Send message</h1>
+            <h1 className="text-blue-400 dark:text-gray-400 font-sans">Send message</h1>
             <div className="mb-3 w-10/12 lg:w-1/2">
               <label htmlFor="name" className="form-label">
                 name
@@ -98,7 +98,7 @@ const Page = () => {
               />
             </div>
 
-            <Button type="submit"> Send Messege</Button>
+            <Button type="submit" > Send Messege</Button>
           </form>
         </div>
         <div className="social flex gap-5 justify-center mt-4  ">

@@ -18,8 +18,9 @@ export default function Skills() {
           <div className="flex justify-center flex-wrap pb-16 text-white dark:text-black gap-10 ">
             <SkillCard icon={ci.cibReact} skill="React JS" />
             <SkillCard icon={ci.cibNextJs} skill="Next JS" />
-            <SkillCard icon={ci.cibMysql} skill="My sql" />
             <SkillCard icon={ci.cibNodeJs} skill="Node js" />
+            <SkillCard icon={ci.cibMysql} skill="My sql" />
+            <SkillCard icon={ci.cibMongodb} skill="Mongo DB" />
           </div>
         </div>
       </section>
