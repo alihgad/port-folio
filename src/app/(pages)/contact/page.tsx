@@ -1,52 +1,62 @@
 "use client";
-import React, { MutableRefObject, useRef } from "react";
-import emailjs from "@emailjs/browser";
+import React, { MutableRefObject, useRef, useState } from "react";
+import Swal from 'sweetalert2'
 import { useFormik } from "formik";
 import { Button } from "@/components/ui/button";
 import CIcon from "@coreui/icons-react";
 import { cibFacebook, cibLinkedin, cibWhatsapp } from "@coreui/icons";
 import Link from "next/link";
+import axios from "axios";
+import Loading from "@/components/global/Loader";
 
 const Page = () => {
-  const form: any = useRef();
-  
-
-  const sendEmail = (e: any) => {
-
-    e.preventDefault();
-
-    emailjs
-      .sendForm("service_ali", "template_ali", form.current, {
-        publicKey: "VdP3etScr6dqyrzOP",
-      })
-      .then(
-        () => {
-          alert("meesage sent");
-        },
-        (error) => {
-          alert("FAILED..." + error.text);
-        }
-      );
-  };
-
+ 
+  const [loading,setLoading]= useState(false)
   const formik = useFormik({
     initialValues: {
-      user_name: "",
-      from_email: "",
-      from_phone: "",
+      name: "",
+      email: "",
+      phone: "",
       message: "",
-      from_name: "",
     },
-    onSubmit: (values) => {},
+    onSubmit: (values) => {
+      setLoading(true);
+      axios
+       .post("https://portfolio-api-sigma-ten.vercel.app/projects/sendEmail", values)
+       .then((res) => {
+        Swal.fire({
+          title: "Done",
+          text: "Message has been sent",
+          icon: "success",
+          timer: 1000
+        });
+        })
+       .catch((error) => {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: error.message,
+        });
+        }).finally(
+          ()=>{
+            formik.resetForm();
+            setLoading(false);
+          }
+        );
+    },
   });
 
   return (
     <>
-      <div className="container py-20">
+      <div className="container py-20 ">
         <div className="  flex items-center justify-center dark:text-white">
+          {loading?
+           <div className="position-absolute inset-0 bg-black bg-opacity-50   ">
+            <Loading/>
+           </div>
+            : null  }
           <form
-            ref={form}
-            onSubmit={sendEmail}
+            onSubmit={formik.handleSubmit}
             className="flex justify-center items-center flex-col w-full"
           >
             <h1 className="text-blue-400 dark:text-gray-400 font-sans">Send message</h1>
@@ -58,7 +68,7 @@ const Page = () => {
                 type="text"
                 className="form-control"
                 id="name"
-                {...formik.getFieldProps("from_name")}
+                {...formik.getFieldProps("name")}
               />
             </div>
 
@@ -70,7 +80,7 @@ const Page = () => {
                 type="email"
                 className="form-control"
                 id="email"
-                {...formik.getFieldProps("from_email")}
+                {...formik.getFieldProps("email")}
               />
             </div>
 
@@ -82,7 +92,7 @@ const Page = () => {
                 type="phone"
                 className="form-control"
                 id="phone"
-                {...formik.getFieldProps("from_phone")}
+                {...formik.getFieldProps("phone")}
               />
             </div>
 

@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import { Button } from "@/components/ui/button";
 import axios from "axios";
 import Loading from "@/components/global/Loader";
+import Swal from "sweetalert2";
 
 interface project  {
     id: number;
@@ -35,7 +36,7 @@ const Page: React.FC<{}> = () => {
     number | undefined,
     Dispatch<SetStateAction<number | undefined>>
   ] = useState();
-  const [admin, setAdmin] = useState(true);
+  const [admin, setAdmin] = useState(false);
 
 
 
@@ -105,7 +106,13 @@ const Page: React.FC<{}> = () => {
           if (res.data.role === "admin") {
             setAdmin(true);
           }else{
-            alert("wrong pin")
+            Swal.fire({
+              title: 'Warning!',
+              text: "You are not authorized to acsses this page!",
+              icon: 'warning',
+              showCancelButton: false,
+              confirmButtonText: 'OK',
+            })
           }
         })
         .catch((err) => {
