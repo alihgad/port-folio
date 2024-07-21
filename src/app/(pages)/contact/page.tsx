@@ -8,6 +8,7 @@ import { cibFacebook, cibLinkedin, cibWhatsapp } from "@coreui/icons";
 import Link from "next/link";
 import axios from "axios";
 import Loading from "@/components/global/Loader";
+import { log } from "console";
 
 const Page = () => {
  
@@ -24,12 +25,22 @@ const Page = () => {
       axios
        .post("https://portfolio-api-sigma-ten.vercel.app/projects/sendEmail", values)
        .then((res) => {
-        Swal.fire({
-          title: "Done",
-          text: "Message has been sent",
-          icon: "success",
-          timer: 1000
-        });
+        
+        if(res?.data?.errors.length > 0){
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: res?.data?.errors[0],
+          });
+        }else{
+          Swal.fire({
+            title: "Done",
+            text: "Message has been sent",
+            icon: "success",
+            timer: 1000
+          });
+        }
+
         })
        .catch((error) => {
         Swal.fire({
