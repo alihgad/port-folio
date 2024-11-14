@@ -61,7 +61,7 @@ export default function Page() {
                                 >
                                   <p className=" text-white    fs-1">
                                     <Link
-                                      className="text-decoration-none text-white"
+                                      className={`text-decoration-none text-white ${proj.git? "" : "d-none"} `}
                                       href={proj.git}
                                       target="_blank"
                                     >

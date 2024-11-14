@@ -8,7 +8,7 @@ import Loading from "@/components/global/Loader";
 import Swal from "sweetalert2";
 
 interface project  {
-    id: number;
+    _id: number;
     image: string;
     alt: string;
     link: string;
@@ -128,12 +128,14 @@ const Page: React.FC<{}> = () => {
    getData()
   }
 
-  const editproject = (id:number)=>{
+  const editproject = (ids:number)=>{
+    
     setUpdate(true)
-    setId(id)
+    setId(ids)
 
-    const project:project|undefined = projects.find((p:{id:number}):boolean => {
-      return p.id === id
+    const project:project|undefined = projects.find((p:{_id:number}):boolean => {
+      
+      return p._id === ids
     })
 
     
@@ -156,8 +158,11 @@ const Page: React.FC<{}> = () => {
 
   }
 
-  const updateProject = async (id:number | undefined , values:any)=>{
-    values.id = id
+  const updateProject = async (_id:number | undefined , values:any)=>{
+    console.log(id);
+    console.log(_id,"_id");
+    
+    values._id = id
     setIsLoading(true)
     await axios
       .put(`https://portfolio-api-sigma-ten.vercel.app/projects/${id}` , {
@@ -202,7 +207,7 @@ const Page: React.FC<{}> = () => {
               <div className="container pb-10 pt-32 md:pt-24">
                 <form
                   onSubmit={formik.handleSubmit}
-                  className="flex flex-col h-screen justify-center items-center dark:text-white "
+                  className="flex flex-col  justify-center items-center dark:text-white "
                 >
                   <div className="mb-3 w-10/12 ">
                     <label htmlFor="link" className="form-label">
@@ -356,24 +361,25 @@ const Page: React.FC<{}> = () => {
                   <table className="table table-secondary">
                     <thead>
                       <tr>
-                        <th scope="col" className="text-center">id</th>
                         <th scope="col" className="text-center">title</th>
                         <th scope="col" className="text-center" >update</th>
                         <th scope="col" className="text-center" >delete</th>
                       </tr>
                     </thead>
                     <tbody>
-                      {projects?.map((proj: { id: number; alt: string }) => {
+                      {projects?.map((proj: { _id: number; alt: string }) => {
                         return (
                           <>
                             <tr className="">
-                              <td scope="row" >{proj.id}</td>
                               <td>{proj.alt}</td>
                               <td>
-                                <Button onClick={()=>{editproject(proj.id)}}>update</Button>
+                                <Button onClick={()=>{
+                                  
+                                  editproject(proj._id)
+                                  }}>update</Button>
                               </td>
                               <td>
-                                <Button onClick={()=>{deleteProject(proj.id)}}>delete</Button>
+                                <Button onClick={()=>{deleteProject(proj._id)}}>delete</Button>
                               </td>
                             </tr>
                           </>
